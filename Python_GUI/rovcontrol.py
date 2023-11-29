@@ -1,12 +1,13 @@
 import tkinter
 import serial
 import tkinter.font as tkFont
+comport=str(input("Please Enter comport at which device is connected"))
 root=tkinter.Tk()
 master=tkinter.Frame(root,width=600, height=500)
 root.title("ROV Control")
 root.geometry("600x500")
 master.place(in_=root, anchor="c", relx=.5, rely=.5)
-ser = serial.Serial('com5', 9600)
+ser = serial.Serial(comport, 9600)
 ser.write(bytes('l', 'UTF-8'))
 def read():
     b = ser.readline()         
